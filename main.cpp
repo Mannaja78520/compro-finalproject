@@ -2,16 +2,14 @@
 #include <SFML/Graphics.hpp>
 
 int main() {
-    sf::RenderWindow window(sf::VideoMode(800, 600), "เกมจีบหนุ่ม");
-
     sf::Font font;
-    if (!font.loadFromFile("src/fonts/Arial.ttf")) {
-        // จัดการกับข้อผิดพลาดการโหลดฟอนต์
-    }
+    font.loadFromFile("src/fonts/Sarabun-Medium.ttf");
+
+    sf::RenderWindow window(sf::VideoMode(800, 600), L"เกมจีบหนุ่ม");
 
     sf::Text startText;
     startText.setFont(font);
-    startText.setString("กด Space เพื่อเริ่มเกม");
+    startText.setString(L"กด Space เพื่อเริ่มเกม");
     startText.setCharacterSize(24);
     startText.setFillColor(sf::Color::White);
     startText.setPosition(250.f, 300.f);
