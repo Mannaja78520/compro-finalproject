@@ -1,6 +1,8 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 
+using namespace std;
+
 int main() {
     sf::Font font;
     font.loadFromFile("src/fonts/Sarabun-Medium.ttf");
@@ -48,7 +50,7 @@ int main() {
             }
 
             // แสดงความชอบ
-            affectionText.setString("ความชอบ: " + std::to_string(affectionMeter));
+            affectionText.setString(L"ความชอบ: " + affectionMeter);
             window.draw(affectionText);
 
             // คำถามตอบ
@@ -56,24 +58,24 @@ int main() {
             questionText.setFont(font);
 
             // คำถาม 1
-            questionText.setString("ถ้าคุณชอบฉัน กด A");
+            questionText.setString(L"ถ้าคุณชอบฉัน กด A");
             questionText.setCharacterSize(20);
             questionText.setFillColor(sf::Color::White);
             questionText.setPosition(200.f, 300.f);
             window.draw(questionText);
 
             // คำถาม 2
-            questionText.setString("ถ้าคุณต้องการเจอกันในวันหยุด กด B (ลดความชอบเพิ่มขึ้น)");
+            questionText.setString(L"ถ้าคุณต้องการเจอกันในวันหยุด กด B (ลดความชอบเพิ่มขึ้น)");
             questionText.setPosition(200.f, 350.f);
             window.draw(questionText);
 
             // คำถาม 3
-            questionText.setString("ถ้าคุณอยากไปดูหนังด้วยกัน กด C (ลดความชอบเพิ่มขึ้น)");
+            questionText.setString(L"ถ้าคุณอยากไปดูหนังด้วยกัน กด C (ลดความชอบเพิ่มขึ้น)");
             questionText.setPosition(200.f, 400.f);
             window.draw(questionText);
 
             // คำถาม 4
-            questionText.setString("ถ้าคุณชอบทะเล กด D (ลดความชอบเพิ่มขึ้น)");
+            questionText.setString(L"ถ้าคุณชอบทะเล กด D (ลดความชอบเพิ่มขึ้น)");
             questionText.setPosition(200.f, 450.f);
             window.draw(questionText);
 
@@ -81,7 +83,7 @@ int main() {
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
                 sf::Text correctText;
                 correctText.setFont(font);
-                correctText.setString("คำตอบถูก! ความชอบเพิ่มขึ้น");
+                correctText.setString(L"คำตอบถูก! ความชอบเพิ่มขึ้น");
                 correctText.setCharacterSize(20);
                 correctText.setFillColor(sf::Color::Green);
                 correctText.setPosition(200.f, 500.f);
@@ -89,7 +91,7 @@ int main() {
             } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
                 sf::Text wrongText;
                 wrongText.setFont(font);
-                wrongText.setString("คำตอบผิด! ความชอบลดลง (Bad End)");
+                wrongText.setString(L"คำตอบผิด! ความชอบลดลง (Bad End)");
                 wrongText.setCharacterSize(20);
                 wrongText.setFillColor(sf::Color::Red);
                 wrongText.setPosition(200.f, 500.f);
@@ -98,7 +100,7 @@ int main() {
             } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::C) || sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
                 sf::Text wrongText;
                 wrongText.setFont(font);
-                wrongText.setString("คำตอบผิด! ความชอบลดลง (Bad End)");
+                wrongText.setString(L"คำตอบผิด! ความชอบลดลง (Bad End)");
                 wrongText.setCharacterSize(20);
                 wrongText.setFillColor(sf::Color::Red);
                 wrongText.setPosition(200.f, 500.f);
@@ -110,7 +112,7 @@ int main() {
             if (affectionMeter <= 0) {
                 sf::Text badEndText;
                 badEndText.setFont(font);
-                badEndText.setString("Bad End: ความชอบต่ำเกินไป จบเกม!");
+                badEndText.setString(L"Bad End: ความชอบต่ำเกินไป จบเกม!");
                 badEndText.setCharacterSize(30);
                 badEndText.setFillColor(sf::Color::Red);
                 badEndText.setPosition(150.f, 250.f);
@@ -121,7 +123,7 @@ int main() {
             } else if (affectionMeter >= 50) {
                 sf::Text goodEndText;
                 goodEndText.setFont(font);
-                goodEndText.setString("Good End: ความชอบสูงมาก! จบเกม");
+                goodEndText.setString(L"Good End: ความชอบสูงมาก! จบเกม");
                 goodEndText.setCharacterSize(30);
                 goodEndText.setFillColor(sf::Color::Green);
                 goodEndText.setPosition(150.f, 250.f);
